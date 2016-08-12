@@ -7,13 +7,13 @@ public class Client {
 		try {
 			System.out.println(bank.createAccount(101, 3000));
 			
-		} catch (insufficientInitialBalanceException e) {
+		} catch (InsufficientInitialBalanceException e) {
 			e.getMessage();
 		}
 		try {
 			System.out.println(bank.createAccount(102, 3000));
 			
-		} catch (insufficientInitialBalanceException e) {
+		} catch (InsufficientInitialBalanceException e) {
 			e.getMessage();
 		}
 		

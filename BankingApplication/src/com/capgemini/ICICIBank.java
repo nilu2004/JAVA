@@ -7,10 +7,10 @@ public class ICICIBank {
 	LinkedList<Account> accounts=new LinkedList<>();
 	
 	
-	public String createAccount(int accountNumber, int amount) throws insufficientInitialBalanceException{
+	public String createAccount(int accountNumber, int amount) throws InsufficientInitialBalanceException{
 		Account account = new Account(accountNumber, amount);
 		if (amount < 500) {
-			throw new insufficientInitialBalanceException();
+			throw new InsufficientInitialBalanceException("Insufficient initial deposit amount");
 		}
 		accounts.add(account);
 		return "account created successfully";
@@ -40,7 +40,7 @@ public class ICICIBank {
 			return account.getAmount();
 		}
 		
-		throw new InsufficientBalanceException();
+		throw new InsufficientBalanceException("Insufficient balance");
 	}
 	
 	public int depositAmount(int accountNumber, int amount) throws InvalidAccountNumberException {
@@ -62,7 +62,7 @@ public class ICICIBank {
 			beneficiaryAccount.setAmount(beneficiaryAccount.getAmount()+amount);
 			return "Payee account balnace :: "+payeeAccount.getAmount()+"\n Beneficiary account balance :: "+beneficiaryAccount.getAmount();
 		}
-		throw new InsufficientBalanceException();
+		throw new InsufficientBalanceException("Insufficient balance in payee's account");
 		
 	}
 }
